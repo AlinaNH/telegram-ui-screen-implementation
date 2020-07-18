@@ -160,14 +160,6 @@ body {
     overflow-x: hidden;
 }
 
-::-webkit-scrollbar {
-    width: 5px;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: #888;
-}
-
 .dialogues_search_wrap {
     padding: 12px;
 }
@@ -286,32 +278,33 @@ body {
     float: left;
     width: 69%;
     height: 100%;
-    position: relative;
 }
 
 .history_split {
     width: 100%;
-    max-height: 85%;
-    position: absolute;
+    height: 100%;
     bottom:0;
+    display: flex;
+    flex-direction: column;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: rgba(216, 223, 225, 0.45);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(137, 160, 179, 0.5);
 }
 
 .history_wall {
+    overflow-y: auto;
     height: 85%;
-    overflow: auto;
-    margin-bottom: 50px;
 }
 
 .history_messages_wrap {
     width: 100%;
     height: 90%;
-    margin-top: 100px;
-}
-
-.time_text {
-    margin: 0;
-    text-align: center;
-    color: rgb(160, 160, 160);
 }
 
 .history_message_wrap {
@@ -349,6 +342,266 @@ body {
     font-size: 13px;
 }
 
+.message_picture_wrap {
+    display: block;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.message_picture {
+    border-radius: 2px;
+    overflow: hidden;
+    max-width: 260px;
+    max-height: 208px;
+}
+
+.message_audio_wrap {
+    margin-top: 3px;
+    box-sizing: border-box;
+}
+
+.message_audio_button_wrap {
+    background: #6490b1;
+    border-radius: 50%;
+    display: block;
+    float: left;
+    width: 42px;
+    height: 42px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.message_audio_button {
+    display: block;
+    width: 14px;
+    height: 16px;
+    margin: 13px 16px;
+    background-image: url("https://web.telegram.org/img/icons/General.png");
+    background-repeat: no-repeat;
+    background-position: -13px -611px;
+}
+
+.message_audio_title_wrap {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 1px 0;
+    line-height: 16px;
+    height: 19px;
+    width: 200px;
+}
+
+.message_audio_title {
+    display: inline-block;
+    font-weight: 700;
+    max-width: 100px;
+    overflow: hidden;
+    vertical-align: text-top;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #3a6d99;
+}
+
+.message_audio_duration {
+    overflow: hidden;
+    vertical-align: text-top;
+    float: right !important;
+    color: #999;
+    padding-left: 2px;
+}
+
+.message_audio_title:hover {
+    text-decoration-line: underline;
+    cursor: pointer;
+}
+
+.message_audio_progress_wrap {
+    overflow: hidden;
+    margin-top: 4px;
+    float: left;
+    margin-right: 15px;
+    width: 200px;
+}
+
+.message_audio_progress_slider_wrap {
+    margin: 7px 0;
+    height: 4px;
+    border-radius: 0;
+    position: relative;
+    cursor: pointer;
+}
+
+.message_audio_progress_slider {
+    height: 18px;
+    line-height: 18px;
+    background: rgba(218,228,234,.5);
+    height: 4px;
+    z-index: 2;
+    width: 100%;
+}
+
+.message_audio_progress_thumb {
+    left: 0px;
+    border: 0;
+    background: #6b9bc2;    
+    width: 18px;
+    height: 18px;
+    border-radius: 9px;
+    z-index: 3;
+    top: -7px;
+    position: absolute;
+    opacity: 0;
+}
+
+.message_audio_progress_slider_wrap:hover .message_audio_progress_thumb {
+    opacity: 1;
+}
+
+.message_audio_sound_slider_wrap {
+    width: 50px;
+    float: left;
+    position: relative;
+    cursor: pointer;
+    background: rgba(218,228,234,.5);
+    margin: 11px 0;
+    height: 4px;
+}
+
+.message_audio_slider {
+    height: 18px;
+    line-height: 18px;
+}
+
+.message_audio_slider_thumb {
+    top: 0px;
+    position: absolute;
+    background: #6490b1;
+    width: 4px;
+    height: 4px;
+    z-index: 3;
+    opacity: 0;
+}
+
+.message_audio_sound_slider_wrap:hover .message_audio_slider_thumb {
+    opacity: 1;
+}
+
+.message_video_wrap {
+    margin-top: 3px;
+    width: 317px;
+}
+
+.message_video {
+    width: 150px;
+    float: left;
+    margin-right: 15px;
+    position: relative;
+    border-radius: 2px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.message_video_duration {
+    color: #fff;
+    background: rgba(0,0,0,.4);
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    padding: 2px 6px;
+    font-size: 11px;
+    line-height: 15px;
+    border-radius: 2px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.icon_video_play {
+    position: absolute;
+    display: inline-block;
+    top: 50%;
+    left: 50%;
+    margin-left: -5px;
+    margin-top: -9px;   
+    z-index: 1;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 9px 0 9px 14px;
+    border-color: transparent transparent transparent #fff;
+}
+
+.message_video_blur {
+    filter: blur(2px);
+    width: 150px;
+    height: 84px;
+}
+
+.message_media_info {
+    float: left;
+    margin-top: 5px;
+}
+
+.message_media_name {
+    max-width: 110px;
+    color: #3a6d99;
+    font-weight: 700;
+    vertical-align: text-top;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.message_media_size {
+    color: #999;
+    padding-left: 2px;
+    vertical-align: text-top;
+}
+
+.message_media_actions {
+    width: 152px;
+    color: #3a6d99;
+}
+
+.message_media_download_button {
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.message_media_play_button {
+    cursor: pointer;
+}
+
+.message_media_download_button:hover, .message_video_play_button:hover {
+    text-decoration: underline;
+}
+
+.message_file_wrap {
+    margin-top: 3px;
+    width: 317px;
+    box-sizing: border-box;
+}
+
+.message_file_button_wrap {
+    display: block;
+    background: rgba(218,228,234,.5);
+    float: left;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.message_file_button {
+    display: inline-block;
+    line-height: 0;
+    width: 12px;
+    height: 18px;
+    margin: 12px 15px;
+    background-image: url("https://web.telegram.org/img/icons/General.png");
+    background-repeat: no-repeat;
+    background-position: -14px -509px;
+}
+
 .message_date_wrap {
     float: right !important;
     text-align: right;
@@ -360,10 +613,11 @@ body {
 }
 
 .message_form_wrap {
-    max-width: 554px;
+    width: 554px;
     padding: 10px 15px 30px;
-    margin: 0 auto;
+    margin: 0;
     height: 97px;
+    align-self: center;
 }
 
 .message_form {
